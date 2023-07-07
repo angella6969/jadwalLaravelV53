@@ -44,7 +44,7 @@ class JadwalController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'tittle' => 'required',
-            'days' => 'required',
+            'days' => 'required|date_format:Y-m-d',
             'by' => 'required',
             'room' => 'required',
             'time' => 'required',

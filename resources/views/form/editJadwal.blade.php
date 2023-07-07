@@ -19,6 +19,7 @@
             <label for="">Ruang</label>
             <select class="form-select" name="room" id="room" required>
                 <option selected>Pilih Ruang</option>
+                <option value="">Ruang Rapat</option>
                 <option value="RR Serayu">RR Serayu</option>
                 <option value="RR Opak">RR Opak</option>
                 <option value="RR Wadaslintang">RR Wadaslintang</option>
@@ -40,8 +41,9 @@
 
         <div class="col-md-4 col-sm-6 mb-3">
             <label for="">Jadwal Agenda</label>
-            <input class="form-control" id="days" name="days" type="text" placeholder="dd-mm-yyyy"
-                value="{{ $jadwal->days }}" pattern="\d{2}-\d{2}-\d{4}" required>
+            <input class="date-picker form-control" name="days" placeholder="dd-mm-yyyy" type="text"
+                value="{{ $jadwal->days }}" required="required" onfocus="this.type='date'" onmouseover="this.type='date'"
+                onclick="this.type='date'" onblur="this.type='text'">
         </div>
 
         {{-- Field Button --}}

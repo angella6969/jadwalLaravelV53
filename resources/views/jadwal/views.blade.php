@@ -46,8 +46,13 @@
             <div class="table-responsive-sm mt-3">
                 <table class="table table-striped table-sm my-table table-bordered">
                     <label for="" class="d-flex justify-content-center">
+                        <br><br>
                         <h1 class="">Agenda Penggunaan Ruang Rapat</h1>
                     </label>
+                    <div
+                        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <br>
+                    </div>
                     <thead>
                         <tr>
                             <th scope="col" class="text-center">No</th>

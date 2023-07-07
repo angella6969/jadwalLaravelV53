@@ -11,6 +11,8 @@
 |
 */
 
+Route::get('/login', 'UserController@index')->middleware('guest')->name('login');
+Route::post('/login', 'UserController@authenticate');
 
 
 
@@ -18,12 +20,14 @@ Route::get('/', 'JadwalController@index');
 Route::get('/video', 'JadwalController@show');
 Route::get('/dashboard/create', 'JadwalController@create');
 Route::post('/dashboard/create', 'JadwalController@store');
-Route::get('/dashboard/edit/{id}', 'JadwalController@edit');
-Route::post('/dashboard/update/{id}', 'JadwalController@update');
 
-Route::get('/dashboard/code', 'UrlController@create');
-Route::post('/dashboard/code', 'UrlController@store');
 
-Route::get('/dashboard', 'DashboardController@index');
-Route::delete('/dashboard/jadwal/{id}', 'DashboardController@destroy');
-Route::delete('/dashboard/code/{id}', 'DashboardController@destroyCode');
+Route::get('/dashboard/edit/{id}', 'JadwalController@edit')->middleware('auth');
+Route::post('/dashboard/update/{id}', 'JadwalController@update')->middleware('auth');
+
+Route::get('/dashboard/code', 'UrlController@create')->middleware('auth');
+Route::post('/dashboard/code', 'UrlController@store')->middleware('auth');
+
+Route::get('/dashboard', 'DashboardController@index')->middleware('auth');
+Route::delete('/dashboard/jadwal/{id}', 'DashboardController@destroy')->middleware('auth');
+Route::delete('/dashboard/code/{id}', 'DashboardController@destroyCode')->middleware('auth');
