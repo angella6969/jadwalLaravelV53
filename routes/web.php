@@ -13,6 +13,7 @@
 
 Route::get('/login', 'UserController@index')->middleware('guest')->name('login');
 Route::post('/login', 'UserController@authenticate');
+Route::post('/logout', 'UserController@logout');
 
 
 

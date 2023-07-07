@@ -13,10 +13,31 @@
             background-attachment: fixed;
         }
     </style>
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <br><br>
-    </div>
+
     <div class="container">
+        <header
+            class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+            <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+                <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+                    <use xlink:href="#bootstrap" />
+                </svg>
+            </a>
+
+            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="/" style=" color: #4df1f1;" class="nav-link px-2 link-dark">Home</a></li>
+                <li><a href="/video"style=" color: #4df1f1;" class="nav-link px-2 link-dark">Video</a></li>
+            </ul>
+
+            <div class="col-md-3 text-end">
+                <form action="/logout" method="post">
+                    @csrf
+                    <button type="submit" style=" color: #4df1f1;" class="btn btn-outline-primary">
+                        logout <span data-feather="log-out" class="align-text-bottom"></span>
+                    </button>
+                </form>
+            </div>
+        </header>
+
         <div class="row">
 
             {{-- View Table User --}}
@@ -69,7 +90,9 @@
                                 </tbody>
                             </table>
                             <div class="position-relative mt-3">
-                                {{ $jadwal->links() }}
+                                <ul class="pagination">
+                                    {{ $jadwal->links() }}
+                                </ul>
                             </div>
                         </div>
                     </div>
